@@ -1,9 +1,9 @@
 {
-  "name": "ng-multiselect-dropdown",
-  "version": "0.3.8",
+  "name": "THGAmanowski/ng-multiselect-dropdown",
+  "version": "0.0.1",
   "private": true,
   "description": "Angular Multi-Select Dropdown",
-  "author": "Nilesh Patel",
+  "author": "THGAmanowski",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -14,16 +14,16 @@
     "test": "jest --watch",
     "test:ci": "jest --runInBand",
     "test:coverage": "jest --coverage",
-    "build:prod": "ng build --prod --base-href https://nileshpatel17.github.io/ng-multiselect-dropdown/",
+    "build:prod": "ng build --prod --base-href https://github.com/THGAmanowski/ng-multiselect-dropdown/",
     "clear:lib": "rimraf dist-lib",
     "postcopyfiles": "copyfiles -u 1 ./dist-lib/**/*.* node_modules/ng-multiselect-dropdown",
     "copyfiles": "mkdir dist-lib/themes && copyfiles ng-multiselect-dropdown.theme.scss dist-lib/themes",
     "build:lib": "npm run clear:lib && ng-packagr -p ng-package.json",
     "postbuild:lib": "npm run copyfiles",
     "prepublish": "npm run build:prod",
-    "publish": "ngh --no-silent false --name=\"nileshpatel17\" --email=\"nilesh.nvs@hotmail.com\"",
+    "publish": "ngh --no-silent false --name=\"Kacper Amanowski\" --email=\"kacper.amanowski@thehutgroup.com\"",
     "deploy": "ng build --prod --base-href /ng-multiselect-dropdown/ && npm run deployOnly",
-    "deployOnly": "angular-cli-ghpages --no-silent --repo=https://github.com/NileshPatel17/ng-multiselect-dropdown.git --name=\"Nilesh Patel\" --email=nilesh.nvs@hotmail.com",
+    "deployOnly": "angular-cli-ghpages --no-silent --repo=https://github.com/THGAmanowski/ng-multiselect-dropdown.git --name=\"Kacper Amanowski\" --email=kacper.amanowski@thehutgroup.com",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
@@ -39,7 +39,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nileshpatel17/ng-multiselect-dropdown.git"
+    "url": "https://github.com/THGAmanowski/ng-multiselect-dropdown.git"
   },
   "bugs": {
     "url": "https://github.com/nileshpatel17/ng-multiselect-dropdown/issues"

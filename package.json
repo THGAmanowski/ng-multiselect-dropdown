@@ -1,6 +1,6 @@
 {
-  "name": "orbit-multiselect-dropdown",
-  "version": "0.0.7",
+  "name": "@thgamanowski/orbit-multiselect-dropdown",
+  "version": "0.0.10",
   "private": false,
   "description": "Angular Multi-Select Dropdown",
   "author": "THGAmanowski",

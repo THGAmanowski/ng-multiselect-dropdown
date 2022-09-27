@@ -22,6 +22,9 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v3
+        with:
+          repository: THGAmanowski/ng-multiselect-dropdown
+          token: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/setup-node@v3
         with:
           always-auth: true
@@ -29,7 +32,9 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: "@thgamanowski"
       - run: yarn install --frozen-lockfile
-      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-      - run: yarn publish --https://npm.pkg.github.com/
+      - run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          echo "@thgamanowski:registry=https://npm.pkg.github.com" > ~/.npmrc
+      - run: yarn publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

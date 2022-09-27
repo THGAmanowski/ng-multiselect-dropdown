@@ -1,6 +1,6 @@
 {
   "name": "@thgamanowski/orbit-multiselect-dropdown",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "private": false,
   "description": "Angular Multi-Select Dropdown",
   "author": "THGAmanowski",
@@ -21,9 +21,9 @@
     "build:lib": "npm run clear:lib && ng-packagr -p ng-package.json",
     "postbuild:lib": "npm run copyfiles",
     "prepublish": "npm run build:prod",
-    "publish": "ngh --no-silent false --name=\"Kacper Amanowski\" --email=\"kacper.amanowski@thehutgroup.com\" --username=thgamanowski",
+    "publish": "ngh --no-silent false --name=\"Kacper Amanowski\" --email=\"kacper.amanowski@thehutgroup.com\" --username=\"thgamanowski\"",
     "deploy": "ng build --prod --base-href /ng-multiselect-dropdown/ && npm run deployOnly",
-    "deployOnly": "angular-cli-ghpages --no-silent --repo=https://github.com/THGAmanowski/ng-multiselect-dropdown.git --name=\"Kacper Amanowski\" --email=kacper.amanowski@thehutgroup.com -username=thgamanowski",
+    "deployOnly": "angular-cli-ghpages --no-silent --repo=https://github.com/THGAmanowski/ng-multiselect-dropdown.git --name=\"Kacper Amanowski\" --email=\"kacper.amanowski@thehutgroup.com\" --username=\"thgamanowski\"",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
@@ -39,7 +39,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/THGAmanowski/ng-multiselect-dropdown.git"
+    "url": "ssh://git@github.com/THGAmanowski/ng-multiselect-dropdown.git"
   },
   "bugs": {
     "url": "https://github.com/nileshpatel17/ng-multiselect-dropdown/issues"

@@ -23,18 +23,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: THGAmanowski/ng-multiselect-dropdown
+          repository: THG-CustomerZen/ng-multiselect-dropdown
           token: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/setup-node@v3
         with:
           always-auth: true
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: "@thgamanowski"
+          scope: "@thg-customerzen"
       - run: yarn install --frozen-lockfile && yarn build:lib
       - run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-          echo "@thgamanowski:registry=https://npm.pkg.github.com" > ~/.npmrc
+          echo "@thg-customerzen:registry=https://npm.pkg.github.com" > ~/.npmrc
       - run: cd dist-lib && yarn publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

@@ -22,7 +22,7 @@
     "postbuild:lib": "npm run copyfiles",
     "prepublish": "npm run build:prod",
     "deploy": "ng build --prod --base-href /ng-multiselect-dropdown/ && npm run deployOnly",
-    "deployOnly": "angular-cli-ghpages --no-silent --repo=git@github.com/THGAmanowski/ng-multiselect-dropdown.git --name=\"thgamanowski\" --email=\"kacper.amanowski@thehutgroup.com\"",
+    "deployOnly": "angular-cli-ghpages --no-silent --repo=git@github.com/THG-CustomerZen/ng-multiselect-dropdown.git --name=\"THG-SA-CustomerZen\" --email=\"DL-CustomerZenDev@thehutgroup.com\"",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
@@ -38,7 +38,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/THGAmanowski/ng-multiselect-dropdown.git"
+    "url": "ssh://git@github.com/THG-CustomerZen/ng-multiselect-dropdown.git"
   },
   "bugs": {
     "url": "https://github.com/nileshpatel17/ng-multiselect-dropdown/issues"
@@ -93,6 +93,6 @@
     "zone.js": "^0.10.2"
   },
   "publishConfig": {
-    "@thg-customerzeni:registry": "https://npm.pkg.github.com"
+    "@thg-customerzen:registry": "https://npm.pkg.github.com"
   }
 }

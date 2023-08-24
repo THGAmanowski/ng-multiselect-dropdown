@@ -1,9 +1,9 @@
 {
-  "name": "@thgamanowski/ng-multiselect-dropdown",
+  "name": "@thg-customerzen/ng-multiselect-dropdown",
   "version": "0.0.18",
   "private": false,
   "description": "Angular Multi-Select Dropdown",
-  "author": "THGAmanowski",
+  "author": "THG-CustomerZen",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -93,6 +93,6 @@
     "zone.js": "^0.10.2"
   },
   "publishConfig": {
-    "@thgamanowski:registry": "https://npm.pkg.github.com"
+    "@thg-customerzeni:registry": "https://npm.pkg.github.com"
   }
 }

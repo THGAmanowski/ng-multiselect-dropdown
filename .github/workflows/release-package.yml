@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        continue-on-error: false
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           node-version: 12

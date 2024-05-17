@@ -33,4 +33,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       - run: yarn install --frozen-lockfile
       - run: yarn build:lib
-      - run: cd dist-lib && echo -e "@thg-customerzen:registry=https://npm.pkg.github.com/\\n//npm.pkg.github.com/:_authToken=${{ secrets.PAT_TOKEN }}" >> .npmrc && yarn publish --registry=https://npm.pkg.github.com/
+      - run: cd dist-lib && echo -e "@thg-customerzen:registry=https://npm.pkg.github.com/\\n//npm.pkg.github.com/:_authToken=${{ secrets.PAT_TOKEN }}" >> .yarnrc && yarn publish --registry=https://npm.pkg.github.com/

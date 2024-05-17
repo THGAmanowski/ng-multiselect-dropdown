@@ -28,9 +28,13 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: "@thg-customerzen"
-      - run: |
-          yarn install --frozen-lockfile && yarn build:lib
-          echo -e "@thg-customerzen:registry=https://npm.pkg.github.com/\\n//npm.pkg.github.com/:_authToken=${{ secrets.PAT_TOKEN }}" >> .npmrc
-          cd dist-lib && yarn publish --registry=https://npm.pkg.github.com/
+      - name: Update version in package.json
+        shell: bash
+        run: |
+          sed -i "3s/.*/  \"version\": \"${{ github.ref_name }}\",/" package.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - run: yarn install --frozen-lockfile && yarn build:lib
+      - run: cd dist-lib && yarn publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.PAT_TOKEN}}

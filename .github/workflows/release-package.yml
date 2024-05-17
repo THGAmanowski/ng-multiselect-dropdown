@@ -24,17 +24,15 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          always-auth: true
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: "@thg-customerzen"
-      - name: Update version in package.json
-        shell: bash
-        run: |
+      - run: |
           sed -i "3s/.*/  \"version\": \"${{ github.ref_name }}\",/" package.json
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      - run: yarn install --frozen-lockfile && yarn build:lib
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:lib
       - run: cd dist-lib && yarn publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.PAT_TOKEN}}

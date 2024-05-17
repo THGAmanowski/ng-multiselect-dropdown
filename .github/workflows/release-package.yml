@@ -27,6 +27,11 @@ jobs:
           sed -i "3s/.*/  \"version\": \"${{ github.ref_name }}\",/" package.json
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Login to GitHub Container Registry
+        uses: THG-CustomerZen/GitHub/.github/actions/github-login@master
+        with:
+          username: ${{ secrets.GH_SA_USERNAME }}
+          password: ${{ secrets.PAT_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           always-auth: true

@@ -28,8 +28,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: "@thg-customerzen"
-      - name: Login to GitHub Container Registry
-        uses: THG-CustomerZen/GitHub/.github/actions/github-login@master
+      - uses: THG-CustomerZen/GitHub/.github/actions/github-login@master
         with:
           username: ${{ secrets.GH_SA_USERNAME }}
           password: ${{ secrets.PAT_TOKEN }}

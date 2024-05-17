@@ -12,12 +12,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 12
-      - name: Configure npm for GitHub Package Registry
-        run: |
-          echo "@thg-customerzen:registry=https://npm.pkg.github.com/" > ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PAT_TOKEN }}" >> ~/.npmrc
-          echo "always-auth=true" >> ~/.npmrc
       - run: yarn install --frozen-lockfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
   publish-gpr:
     needs: build

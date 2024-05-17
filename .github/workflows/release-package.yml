@@ -38,8 +38,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       - name: Print npmrc
         run: cat ~/.npmrc
-          env:
-            GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       - run: cd dist-lib && yarn publish --non-interactive --access public --registry=https://npm.pkg.github.com/
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}

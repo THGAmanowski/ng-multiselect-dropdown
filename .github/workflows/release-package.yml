@@ -28,8 +28,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       - name: Login to GitHub Container Registry
-        uses: THG-CustomerZen/GitHub/.github/actions/github-login@master
+        uses: docker/login-action@v2
         with:
+          registry: ghcr.io
           username: ${{ secrets.GH_SA_USERNAME }}
           password: ${{ secrets.PAT_TOKEN }}
       - uses: actions/setup-node@v3

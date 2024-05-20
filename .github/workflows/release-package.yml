@@ -35,7 +35,7 @@ jobs:
       - name: Configure npm for GitHub Package Registry
         run: |
           echo "@thg-customerzen:registry=https://npm.pkg.github.com/" > ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{crets.PAT_TOKEN }}" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PAT_TOKEN }}" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
       - run: yarn install --frozen-lockfile && yarn build:lib
         env:

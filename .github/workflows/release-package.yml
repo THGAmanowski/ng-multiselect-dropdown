@@ -37,6 +37,6 @@ jobs:
           echo "@thg-customerzen:registry=https://npm.pkg.github.com/" > ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.PACKAGE_TOKEN }}" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
-          cat ~./npmrc
+          cat ~/.npmrc
       - run: yarn install --frozen-lockfile && yarn build:lib
       - run: cd dist-lib && yarn publish

@@ -31,15 +31,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: "@THG-CustomerZen"
+          scope: "@thg-customerzen"
       - name: Configure npm for GitHub Package Registry
         run: |
           echo "@thg-customerzen:registry=https://npm.pkg.github.com/" > ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.PACKAGE_TOKEN }}" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
+          cat ~./npmrc
       - run: yarn install --frozen-lockfile && yarn build:lib
-        env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
-      - run: cd dist-lib && yarn publish && yarn deployOnly
-        env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+      - run: cd dist-lib && yarn publish

@@ -14,7 +14,7 @@ jobs:
           node-version: 12
       - run: yarn install --frozen-lockfile
         env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
   publish-gpr:
     needs: build
@@ -26,16 +26,20 @@ jobs:
         run: |
           sed -i "3s/.*/  \"version\": \"${{ github.ref_name }}\",/" package.json
         env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       - uses: actions/setup-node@v3
         with:
-          always-auth: true
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: "@thg-customerzen"
+          scope: "@THG-CustomerZen"
+      - name: Configure npm for GitHub Package Registry
+        run: |
+          echo "@thg-customerzen:registry=https://npm.pkg.github.com/" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{crets.PAT_TOKEN }}" >> ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
       - run: yarn install --frozen-lockfile && yarn build:lib
         env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
-      - run: cd dist-lib && yarn publish --non-interactive --access public --registry=https://npm.pkg.github.com/
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - run: cd dist-lib && yarn publish && yarn deployOnly
         env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}

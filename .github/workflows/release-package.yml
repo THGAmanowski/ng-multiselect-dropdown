@@ -41,4 +41,5 @@ jobs:
           echo "always-auth=true" >> ~/.npmrc
           cd dist-lib && yarn publish
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}

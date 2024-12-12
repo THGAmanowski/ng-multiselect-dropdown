@@ -8,8 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 12
       - run: yarn install --frozen-lockfile
@@ -20,14 +20,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Update version in package.json
         shell: bash
         run: |
           sed -i "3s/.*/  \"version\": \"${{ github.ref_name }}\",/" package.json
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
